@@ -14,7 +14,7 @@ The system processes live video feeds, detects faces using the Haar Cascade Clas
 - Interactive Visualization: Displays detected faces with bounding boxes and overlays predicted age and gender labels on the video feed.
 Efficient Face Cropping: Crops and resizes detected faces with customizable margins for optimal model input.
 
-Technologies Used
+## Technologies Used
 
 Python: Core programming language for the project.
 OpenCV: For face detection, image processing, and video handling.
@@ -22,34 +22,38 @@ Keras/TensorFlow: For loading and running the WideResNet model.
 NumPy: For efficient numerical operations and array handling.
 Argparse: For parsing command-line arguments to customize model parameters.
 
-Prerequisites
+## Prerequisites
 To run this project, ensure you have the following installed:
+- Python 3.8+
+- OpenCV (opencv-python)
+- NumPy
+- Keras with TensorFlow backend
+- A webcam for real-time video capture
+- Pre-trained model weights (weights.18-4.06.hdf5) and Haar Cascade XML file (haarcascade_frontalface_alt.xml)
 
-Python 3.8+
-OpenCV (opencv-python)
-NumPy
-Keras with TensorFlow backend
-A webcam for real-time video capture
-Pre-trained model weights (weights.18-4.06.hdf5) and Haar Cascade XML file (haarcascade_frontalface_alt.xml)
+## Installation
 
-Installation
-
-Clone the Repository:
+### Clone the Repository:
+```bash
 git clone https://github.com/your-username/face-recognition-age-gender.git
 cd face-recognition-age-gender
+```
 
-
-Install Dependencies:Create a virtual environment and install the required packages:
+### Install Dependencies:Create a virtual environment and install the required packages:
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install opencv-python numpy tensorflow
+```
 
+## Download Pre-trained Models:
 
-Download Pre-trained Models:
+- Place the haarcascade_frontalface_alt.xml file in the pretrained_models/ directory.
+- Place the weights.18-4.06.hdf5 file (WideResNet weights) in the pretrained_models/ directory.
 
-Place the haarcascade_frontalface_alt.xml file in the pretrained_models/ directory.
-Place the weights.18-4.06.hdf5 file (WideResNet weights) in the pretrained_models/ directory.
-Ensure the folder structure is as follows:face-recognition-age-gender/
+### Ensure the folder structure is as follows:
+```
+face-recognition-age-gender/
 ├── pretrained_models/
 │   ├── haarcascade_frontalface_alt.xml
 │   ├── weights.18-4.06.hdf5
@@ -59,63 +63,50 @@ Ensure the folder structure is as follows:face-recognition-age-gender/
 ├── main.py
 ├── model.py
 ├── README.md
+```
 
-
-
-
-Optional: Prepare Video Clips:
-
+### Optional: Prepare Video Clips:
 Add video files to the 25-30/, 30-35/, and F25-30/ folders for dynamic playback based on age and gender predictions.
 
-
-
-Usage
+## Usage
 Run the main script with optional arguments to customize the WideResNet model:
 python main.py --depth 16 --width 8
-
 
 --depth: Depth of the WideResNet model (default: 16).
 --width: Width of the WideResNet model (default: 8).
 
-The program will:
+## The program will:
 
-Start the webcam and detect faces in real-time.
-Display bounding boxes around detected faces with predicted age and gender labels.
-Play a random video clip from the corresponding folder if the predicted age and gender match predefined criteria (e.g., males aged 25-30).
-Press ESC to exit the program.
+- Start the webcam and detect faces in real-time.
+- Display bounding boxes around detected faces with predicted age and gender labels.
+- Play a random video clip from the corresponding folder if the predicted age and gender match predefined criteria (e.g., males aged 25-30).
+- Press ESC to exit the program.
 
-Code Structure
+## Code Structure
 
-main.py: Entry point for the application, handling argument parsing and initiating the face detection loop.
-model.py: Defines the WideResNet model architecture for age and gender prediction.
+-- main.py: Entry point for the application, handling argument parsing and initiating the face detection loop.
+-- model.py: Defines the WideResNet model architecture for age and gender prediction.
 FaceCV class:
-Singleton class for face recognition.
-Methods for face detection, cropping, and label drawing.
-Integrates the WideResNet model and Haar Cascade Classifier.
+-- Singleton class for face recognition.
+-- Methods for face detection, cropping, and label drawing.
+-- Integrates the WideResNet model and Haar Cascade Classifier.
 
 
-pretrained_models/: Stores the Haar Cascade XML and WideResNet weights.
-Video folders (25-30, 30-35, F25-30): Contain video clips for playback based on predictions.
+- pretrained_models/: Stores the Haar Cascade XML and WideResNet weights.
+- Video folders (25-30, 30-35, F25-30): Contain video clips for playback based on predictions.
 
-Example Output
+## Example Output
 When running the program, the webcam feed will display detected faces with blue bounding boxes and labels showing the predicted age and gender (e.g., "28, Male"). If the predicted demographics match specific criteria, a video clip from the corresponding folder will play in a separate window.
-Future Improvements
 
+## Future Improvements
 Model Fine-Tuning: Train the WideResNet model on a custom dataset for improved accuracy.
 Multi-Face Handling: Enhance the system to handle multiple faces more robustly.
 GUI Integration: Develop a graphical user interface for better user interaction.
 Cloud Deployment: Host the model on a server for remote access and scalability.
 Additional Features: Add emotion detection or facial expression analysis.
 
-Contributing
-Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure that your code follows PEP 8 guidelines and includes appropriate documentation.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-Acknowledgments
-
-The WideResNet model is inspired by the work of [original authors or repository, if applicable].
+## Acknowledgments
+The WideResNet model is inspired by the work of [https://github.com/asmith26/wide_resnets_keras].
 Haar Cascade Classifier is provided by OpenCV.
 Thanks to the open-source community for providing robust libraries like OpenCV and Keras.
 
-
-Built by [Your Name] to demonstrate expertise in computer vision and deep learning. Connect with me on [LinkedIn/GitHub] for more projects!
