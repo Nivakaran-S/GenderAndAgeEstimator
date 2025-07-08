@@ -43,7 +43,7 @@ cd face-recognition-age-gender
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install opencv-python numpy tensorflow
+pip install -r requirements.txt
 ```
 
 ## Download Pre-trained Models:
