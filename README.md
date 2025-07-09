@@ -39,6 +39,13 @@ git clone https://github.com/your-username/face-recognition-age-gender.git
 cd face-recognition-age-gender
 ```
 
+### Download the pretrained_models folder 
+Download the folder from 
+``` bash
+https://drive.google.com/drive/folders/1CmBrIifzAUd6DXpG_wiD5zaYT64nWHI8?usp=sharing
+```
+and include it after cloning the project
+
 ### Install Dependencies:Create a virtual environment and install the required packages:
 ```bash
 python -m venv venv
